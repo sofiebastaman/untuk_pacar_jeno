@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Selamat Ulang Tahun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f8c8dc, #a6d9f7);
+            color: #333;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #ff6b6b;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4e89ae;
+        }
+        .message {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4e89ae;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .audio-player {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+    <h2>Masukkan Nama dan Usia Anda</h2>
+    <div class="input-section">
+        <input type="text" id="name" placeholder="Nama Anda">
+        <input type="number" id="age" placeholder="Usia Anda">
+        <button onclick="showBirthdayMessage()">Tampilkan Ucapan</button>
+    </div>
+    <div id="birthdayMessage" class="message">
+        <p id="greeting"></p>
+        <p id="wishes"></p>
+        <p>🎂 Selamat menikmati hari spesialmu! 🎂</p>
+    </div>
+    <div class="audio-player">
+        <audio controls id="birthdaySong">
+            <source src="HBD Kak Ale.mp3" type="audio/mp3">
+            Browser Anda tidak mendukung pemutar audio.
+        </audio>
+    </div>
+</div>
+
+<script>
+    function showBirthdayMessage() {
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const greeting = document.getElementById("greeting");
+        const wishes = document.getElementById("wishes");
+        const messageDiv = document.getElementById("birthdayMessage");
+        const birthdaySong = document.getElementById("birthdaySong");
+
+        if (name && age) {
+            greeting.textContent = `Hai, ${name}! 🎂`;
+            wishes.textContent = `Hari ini kamu genap berusia ${age} tahun! Semoga bertambahnya usia, bertambah pula kebahagiaan, kesehatan, dan kesuksesan dalam hidupmu.`;
+            messageDiv.style.display = "block";
+            birthdaySong.play();  // Memulai lagu ketika ucapan ditampilkan
+        } else {
+            alert("Harap isi nama dan usia terlebih dahulu.");
+        }
+    }
+</script>
+
+</body>
+</html>
